@@ -3,13 +3,13 @@
 class Food {
 
 	constructor() {
-		this.x = Math.round(random(0, width / spaceSize - 1)) * spaceSize;
-		this.y = Math.round(random(0, height / spaceSize - 1)) * spaceSize;
+		this.x = Math.floor(random(0, width / spaceSize)) * spaceSize;
+		this.y = Math.floor(random(0, height / spaceSize)) * spaceSize;
 	}
 
 	randLocation() {
-		this.foodX = Math.round(random(0, width / spaceSize - 1)) * spaceSize;
-		this.foodY = Math.round(random(0, height / spaceSize - 1)) * spaceSize;
+		this.foodX = Math.floor(random(0, width / spaceSize)) * spaceSize;
+		this.foodY = Math.floor(random(0, height / spaceSize)) * spaceSize;
 		print(this.foodX, this.foodY);
 	}
 
