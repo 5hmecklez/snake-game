@@ -1,5 +1,7 @@
 /* global Food, Snake */
 
+//TODO: Draw food on top of snake
+
 let spaceSize = 25;
 let food;
 let snake;
