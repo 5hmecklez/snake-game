@@ -27,8 +27,8 @@ function drawGridLines() {
 function draw() {
 	background(0);
 	drawGridLines();
-	food.show();
 	snake.show();
+	food.show();
 	if (updateStagger == 10) {
 		snake.updatePos();
 		snake.checkCollision();
