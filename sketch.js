@@ -31,7 +31,7 @@ function draw() {
 	drawGridLines();
 	snake.show();
 	food.show();
-	if (updateStagger == 10) {
+	if (updateStagger == 5) {
 		snake.updatePos();
 		snake.checkCollision();
 

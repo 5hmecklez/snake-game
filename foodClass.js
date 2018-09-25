@@ -11,7 +11,6 @@ class Food {
 	randLocation() {
 		this.location.x = Math.floor(random(0, width / spaceSize)) * spaceSize;
 		this.location.y = Math.floor(random(0, height / spaceSize)) * spaceSize;
-		print(this.location.x, this.location.y);
 	}
 
 	show() {
