@@ -6,6 +6,9 @@ let spaceSize = 25;
 let food;
 let snake;
 let updateStagger = 0;
+let updateTime = 5;
+
+let badSpeed = createVector(0, 1);
 
 function setup() {
 	createCanvas(500, 500);
@@ -31,7 +34,8 @@ function draw() {
 	drawGridLines();
 	snake.show();
 	food.show();
-	if (updateStagger == 5) {
+	if (updateStagger == updateTime) {
+		snake.speed = snake.speedToSet;
 		snake.updatePos();
 		snake.checkCollision();
 
@@ -43,20 +47,46 @@ function draw() {
 }
 
 function keyTyped() {
-	if (key == 'w') {
-		snake.xspeed = 0;
-		snake.yspeed = -1;
-	} else if (key == 'a') {
-		snake.xspeed = -1;
-		snake.yspeed = 0;
-	} else if (key == 's') {
-		snake.xspeed = 0;
-		snake.yspeed = 1;
-	} else if (key == 'd') {
-		snake.xspeed = 1;
-		snake.yspeed = 0;
+	let speedW = createVector(0, -1);
+	let speedA = createVector(-1, 0);
+	let speedS = createVector(0, 1);
+	let speedD = createVector(1, 0);
+	switch (key) {
+	case 'w':
+		if (checkIfBackwards(speedW)) {
+			break;
+		}
+		snake.speedToSet = speedW;
+		break;
+	case 'a':
+		if (checkIfBackwards(speedA)) {
+			break;
+		}
+		snake.speedToSet = speedA;
+		break;
+	case 's':
+		if (checkIfBackwards(speedS)) {
+			break;
+		}
+		snake.speedToSet = speedS;
+		break;
+	case 'd':
+		if (checkIfBackwards(speedD)) {
+			break;
+		}
+		snake.speedToSet = speedD;
+		break;
 	}
 }
+
+function checkIfBackwards(desiredSpeed) {
+	if ((snake.speed.x != desiredSpeed.x) && (snake.speed.y != desiredSpeed.y)) {
+		return false;
+	} else {
+		return true;
+	}
+}
+
 
 function mousePressed() {
 	food.randLocation();

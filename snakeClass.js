@@ -3,8 +3,8 @@ class Snake {
 	constructor() {
 		this.head = createVector(150, 0);
 		this.tail = [];
-		this.xspeed = 1;
-		this.yspeed = 0;
+		this.speed = createVector(1, 0);
+		this.speedToSet = createVector(1, 0);
 	}
 	show() {
 		fill(113, 216, 93);
@@ -41,8 +41,8 @@ class Snake {
 			this.tail[0].x = this.head.x; //set the first piece of the tail equal to the head
 			this.tail[0].y = this.head.y; //set the first piece of the tail equal to the head
 		}
-		this.head.x += this.xspeed * spaceSize; //update the head
-		this.head.y += this.yspeed * spaceSize; //update the head
+		this.head.x += this.speed.x * spaceSize; //update the head
+		this.head.y += this.speed.y * spaceSize; //update the head
 	}
 	grow() {
 		let last = createVector(undefined, undefined); //last will be the last piece of the snake (could be the head)
