@@ -8,8 +8,6 @@ let snake;
 let updateStagger = 0;
 let updateTime = 5;
 
-let badSpeed = createVector(0, 1);
-
 function setup() {
 	createCanvas(500, 500);
 	frameRate(30);
