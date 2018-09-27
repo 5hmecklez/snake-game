@@ -4,13 +4,25 @@ class Food {
 
 	constructor() {
 		this.location = createVector(undefined, undefined);
-		this.location.x = Math.floor(random(0, width / spaceSize)) * spaceSize;
-		this.location.y = Math.floor(random(0, height / spaceSize)) * spaceSize;
+		this.maybeLocation = createVector(undefined, undefined);
 	}
-
-	randLocation() {
-		this.location.x = Math.floor(random(0, width / spaceSize)) * spaceSize;
-		this.location.y = Math.floor(random(0, height / spaceSize)) * spaceSize;
+	chooseNewMaybe() {
+		this.maybeLocation.x = Math.floor(random(0, width / spaceSize)) * spaceSize;
+		this.maybeLocation.y = Math.floor(random(0, height / spaceSize)) * spaceSize;
+	}
+	randLocation(head, tail) {
+		this.chooseNewMaybe();
+		while ((this.maybeLocation.x == head.x) && (this.maybeLocation.y == head.y)) {
+			this.chooseNewMaybe();
+		}
+		for (let i = 0; i < tail.length; i++) {
+			while ((this.maybeLocation.x == tail[i].x) && (this.maybeLocation.y == tail[i].y)) {
+				this.chooseNewMaybe();
+				i = -1;
+				break;
+			}
+		}
+		this.location = this.maybeLocation;
 	}
 
 	show() {

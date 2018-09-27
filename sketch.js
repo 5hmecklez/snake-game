@@ -13,8 +13,10 @@ function setup() {
 	frameRate(30);
 	background(0);
 	stroke(255);
+
 	food = new Food();
 	snake = new Snake();
+	food.randLocation(snake.head, snake.tail);
 }
 
 function drawGridLines() {
@@ -87,6 +89,6 @@ function checkIfBackwards(desiredSpeed) {
 
 
 function mousePressed() {
-	food.randLocation();
+	food.randLocation(snake.head, snake.tail);
 	snake.grow();
 }

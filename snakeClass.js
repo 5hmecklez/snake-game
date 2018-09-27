@@ -25,7 +25,7 @@ class Snake {
 		}
 		//check if snake ate food
 		if (this.head.x == food.location.x && this.head.y == food.location.y) {
-			food.randLocation(); //maybe change this so the snake doesn't reference another object
+			food.randLocation(this.head, this.tail); //maybe change this so the snake doesn't reference another object
 			//maybe return a value, such as 'food'
 
 			this.grow();
