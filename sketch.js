@@ -43,7 +43,18 @@ function draw() {
 	} else {
 		updateStagger++;
 	}
-	print('Length: ' + (snake.tail.length + 1));
+	if (!snake.alive) {
+		snake.head.x = 0;
+		snake.head.y = 0;
+
+		snake.speed.x = 1;
+		snake.speed.y = 0;
+
+		snake.tail = [];
+
+		snake.alive = true;
+	}
+	//print('Length: ' + (snake.tail.length + 1));
 }
 
 function keyTyped() {

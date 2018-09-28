@@ -1,10 +1,11 @@
 /* global spaceSize, food */
 class Snake {
 	constructor() {
-		this.head = createVector(150, 0);
+		this.head = createVector(0, 0);
 		this.tail = [];
 		this.speed = createVector(1, 0);
 		this.speedToSet = createVector(1, 0);
+		this.alive = true;
 	}
 	show() {
 		fill(113, 216, 93);
@@ -29,6 +30,9 @@ class Snake {
 			//maybe return a value, such as 'food'
 
 			this.grow();
+		}
+		if ((this.head.x < 0) || (this.head.x >= width) || (this.head.y < 0) || (this.head.y >= height)) {
+			this.alive = false;
 		}
 	}
 	updatePos() {
