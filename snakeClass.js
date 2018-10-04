@@ -34,9 +34,7 @@ class Snake {
 		}
 		//check if snake ate food
 		if (this.head.x == food.location.x && this.head.y == food.location.y) {
-			food.randLocation(this.head, this.tail); //maybe change this so the snake doesn't reference another object
-			//maybe return a value, such as 'food'
-
+			food.randLocation(this.head, this.tail);
 			this.grow();
 		}
 		if ((this.head.x < 0) || (this.head.x >= width) || (this.head.y < 0) || (this.head.y >= height)) {
@@ -65,7 +63,15 @@ class Snake {
 		}
 		this.tail.push(createVector(last.x, last.y)); //add a piece to the end of the snake on top of the last piece
 	}
+	died() {
+		this.head = createVector(0, 0);
 
+		this.tail = [];
+
+		this.speedToSet = createVector(1, 0);
+
+		this.alive = true;
+	}
 	checkInput(key) {
 		for (let i = 0; i < 4; i++) { //iterate through speeds[]
 			if (key == this.speeds[i][0]) { //if the key pressed was the first value of the particular speeds[i] that we are on
