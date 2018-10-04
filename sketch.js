@@ -15,7 +15,7 @@ function setup() {
 	stroke(255);
 
 	food = new Food();
-	snake = new Snake();
+	snake = new Snake('w', 'a', 's', 'd');
 	food.randLocation(snake.head, snake.tail);
 }
 
@@ -37,7 +37,7 @@ function draw() {
 	if (updateStagger == updateTime) {
 		snake.speed = snake.speedToSet;
 		snake.updatePos();
-		snake.checkCollision();
+		snake.checkCollision(food);
 
 		updateStagger = 0;
 	} else {
@@ -58,36 +58,7 @@ function draw() {
 }
 
 function keyTyped() {
-	let speedW = createVector(0, -1);
-	let speedA = createVector(-1, 0);
-	let speedS = createVector(0, 1);
-	let speedD = createVector(1, 0);
-	switch (key) {
-	case 'w':
-		if (checkIfBackwards(speedW)) {
-			break;
-		}
-		snake.speedToSet = speedW;
-		break;
-	case 'a':
-		if (checkIfBackwards(speedA)) {
-			break;
-		}
-		snake.speedToSet = speedA;
-		break;
-	case 's':
-		if (checkIfBackwards(speedS)) {
-			break;
-		}
-		snake.speedToSet = speedS;
-		break;
-	case 'd':
-		if (checkIfBackwards(speedD)) {
-			break;
-		}
-		snake.speedToSet = speedD;
-		break;
-	}
+	snake.checkInput(key);
 }
 
 function checkIfBackwards(desiredSpeed) {
