@@ -75,7 +75,7 @@ class Snake {
 	checkInput(key) {
 		for (let i = 0; i < 4; i++) { //iterate through speeds[]
 			if (key == this.speeds[i][0]) { //if the key pressed was the first value of the particular speeds[i] that we are on
-				if (!(checkIfBackwards(this.speeds[i][1]))) { //if the second value (the speed) is not backwards
+				if (!(checkIfBackwards(this.speed, this.speeds[i][1]))) { //if the second value (the speed) is not backwards
 					this.speedToSet = this.speeds[i][1]; //set it equal to the speedToSet
 				}
 				break; //only happens if the speed[i][0] is the pressed key but backwards, so we stop the loop and don't check any other keys

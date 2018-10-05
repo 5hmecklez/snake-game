@@ -54,8 +54,8 @@ function keyTyped() {
 	snake.checkInput(key);
 }
 
-function checkIfBackwards(desiredSpeed) {
-	if ((snake.speed.x != desiredSpeed.x) && (snake.speed.y != desiredSpeed.y)) {
+function checkIfBackwards(snakeSpeed, desiredSpeed) {
+	if ((snakeSpeed.x != desiredSpeed.x) && (snakeSpeed.y != desiredSpeed.y)) {
 		return false;
 	} else {
 		return true;
