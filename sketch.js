@@ -1,12 +1,10 @@
 /* global Food, Snake */
 
-//TODO: Draw food on top of snake
-
 let spaceSize = 25;
 let food;
 let snake;
 let updateStagger = 0;
-let updateTime = 5;
+let updateTime = 3;
 
 function setup() {
 	createCanvas(500, 500);
