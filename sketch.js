@@ -1,5 +1,5 @@
 /* global Food, Snake */
-
+//hi
 let spaceSize = 25;
 let food;
 let snake;
@@ -18,11 +18,11 @@ function setup() {
 }
 
 function drawGridLines() {
-	for (let i = 0; i < width; i = i + spaceSize) {
+	for (let i = 0; i < width; i += spaceSize) {
 		line(i, 0, i, width);
 	}
 
-	for (let i = 0; i < height; i = i + spaceSize) {
+	for (let i = 0; i < height; i += spaceSize) {
 		line(0, i, height, i);
 	}
 }
@@ -53,11 +53,7 @@ function keyTyped() {
 }
 
 function checkIfBackwards(snakeSpeed, desiredSpeed) {
-	if ((snakeSpeed.x != desiredSpeed.x) && (snakeSpeed.y != desiredSpeed.y)) {
-		return false;
-	} else {
-		return true;
-	}
+	return (snakeSpeed.x == desiredSpeed.x) || (snakeSpeed.y == desiredSpeed.y);
 }
 
 function mousePressed() {
